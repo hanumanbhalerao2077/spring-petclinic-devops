@@ -16,8 +16,19 @@ target/
 
 # Visual Studio Code
 .factorypath
+.vscode/
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.local
+*.log
+*.tmp
+*.swp
 
 # Branch switching
 generated/
 
 **/.DS_Store
+Thumbs.db
