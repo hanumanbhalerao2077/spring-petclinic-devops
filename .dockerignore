@@ -1,0 +1,17 @@
+.git
+.github
+.vscode
+.idea
+**/.idea
+**/.classpath
+**/.project
+**/.settings
+**/.DS_Store
+**/target
+**/build
+**/*.iml
+**/*.log
+.env
+.env.*
+*.local
+node_modules
