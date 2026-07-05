@@ -13,7 +13,7 @@ and the Eureka Service Discovery from the [Spring Cloud Netflix](https://github.
 
 ## Deployment and operations
 
-For a production-style deployment walkthrough on an EC2 instance, see [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md). A concise execution checklist is available in [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md).
+For a production-style deployment walkthrough on an EC2 instance, see [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md). A concise execution checklist is available in [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md). Architecture and workflow references are in [docs/ARCHITECTURE_DIAGRAM.md](docs/ARCHITECTURE_DIAGRAM.md), [docs/WORKFLOW_DIAGRAM.md](docs/WORKFLOW_DIAGRAM.md), and [docs/INTERVIEW_QUESTIONS.md](docs/INTERVIEW_QUESTIONS.md).
 
 ## Starting services locally without Docker
 

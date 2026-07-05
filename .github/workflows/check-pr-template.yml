@@ -7,8 +7,13 @@ on:
     - cron: '0 8 * * *'   # every day at 08:00 UTC
 
 permissions:
+  contents: read
   pull-requests: write
   issues: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   # ── 1. On every PR open/edit ─────────────────────────────────────────────────
