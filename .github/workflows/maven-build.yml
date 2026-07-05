@@ -9,6 +9,10 @@ on:
 permissions:
   contents: read
 
+env:
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -47,18 +51,18 @@ jobs:
           done
 
       - name: Log in to Docker Hub
-        if: ${{ secrets.DOCKERHUB_USERNAME != '' && secrets.DOCKERHUB_TOKEN != '' }}
+        if: ${{ env.DOCKERHUB_USERNAME != '' && env.DOCKERHUB_TOKEN != '' }}
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_TOKEN }}
 
       - name: Push images to Docker Hub
-        if: ${{ secrets.DOCKERHUB_USERNAME != '' && secrets.DOCKERHUB_TOKEN != '' }}
+        if: ${{ env.DOCKERHUB_USERNAME != '' && env.DOCKERHUB_TOKEN != '' }}
         run: |
           for service in spring-petclinic-config-server spring-petclinic-discovery-server spring-petclinic-customers-service spring-petclinic-visits-service spring-petclinic-vets-service spring-petclinic-genai-service spring-petclinic-api-gateway spring-petclinic-admin-server; do
-            docker tag "$service:ci" "${{ secrets.DOCKERHUB_USERNAME }}/$service:ci"
-            docker push "${{ secrets.DOCKERHUB_USERNAME }}/$service:ci"
+            docker tag "$service:ci" "${{ env.DOCKERHUB_USERNAME }}/$service:ci"
+            docker push "${{ env.DOCKERHUB_USERNAME }}/$service:ci"
           done
 
       - name: Scan image with Trivy
